@@ -254,3 +254,14 @@ Not inlining costs 20 to 40 gas because of two extra JUMP instructions and addit
 2022-08-nounsdao/contracts/governance/NounsDAOLogicV2.sol::1010 => function getChainIdInternal() internal view returns (uint256) {
 2022-08-nounsdao/contracts/governance/NounsDAOProxy.sol::94 => function delegateTo(address callee, bytes memory data) internal {
 ```
+
+## [G-18] Use calldata instead of memory
+
+```
+2022-08-nounsdao/contracts/governance/NounsDAOLogicV1.sol
+175:         address[] memory targets,
+176:         uint256[] memory values,
+177:         string[] memory signatures,
+178:         bytes[] memory calldatas,
+179:         string memory description
+```
