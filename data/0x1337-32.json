@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "0x1337",
+  "address": "0x4c024e5b3ae9b56319ed7c2d0f73a8535ddff47e",
+  "risk": "2",
+  "title": "Lack of Storage Gap in Upgradeable Contracts",
+  "issueId": 32,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/32"
+}
