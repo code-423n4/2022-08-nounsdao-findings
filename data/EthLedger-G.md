@@ -16,4 +16,17 @@ if(msg.sender != admin){
 }
 ```
 
-source: https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/NounsDAOProxy.sol#L79
+https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/NounsDAOProxy.sol#L79
+
+## [2] When there is no possibility for overflow (such as in for loops), use unchecked
+
+```
+for (uint256 i = 0; i < proposal.targets.length; i++) {
+```
+
+The above line can be altered as follows:
+
+```
+for (uint256 i = 0; i < proposal.targets.length; unchecked{i++}) {
+```
+https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/NounsDAOLogicV1.sol#L319
