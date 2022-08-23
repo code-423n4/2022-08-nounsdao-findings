@@ -30,3 +30,14 @@ The above line can be altered as follows:
 for (uint256 i = 0; i < proposal.targets.length; unchecked{i++}) {
 ```
 https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/NounsDAOLogicV1.sol#L319
+
+## [3] ++i is more gas efficient than i++
+
+Insead of 
+```
+for (uint256 i = 0; i < proposal.targets.length; i++) {
+```
+use this:
+```
+for (uint256 i = 0; i < proposal.targets.length; unchecked{++i}) {
+```
