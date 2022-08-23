@@ -15,6 +15,16 @@ Uninitialized variables are assigned with the types default value. Explicitly in
 2022-08-nounsdao/contracts/governance/NounsDAOLogicV2.sol::948 => uint256 lower = 0;
 ```
 
+```
+2022-08-nounsdao/contracts/governance/NounsDAOLogicV1.sol
+230:         newProposal.forVotes = 0;
+231:         newProposal.againstVotes = 0;
+232:         newProposal.abstainVotes = 0;
+233:         newProposal.canceled = false;
+234:         newProposal.executed = false;
+235:         newProposal.vetoed = false;
+```
+
 ## [G-02] Cache Array Length Outside of Loop
 
 Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop.
