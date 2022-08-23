@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "dharma09",
+  "address": "0xf750d548a27292ab2cc5f03fc16d0f84fb806342",
+  "risk": "2",
+  "title": "low-level call not validated in NounsDAOLogicV2.sol",
+  "issueId": 23,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/23"
+}
