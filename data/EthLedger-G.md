@@ -41,3 +41,9 @@ use this:
 ```
 for (uint256 i = 0; i < proposal.targets.length; unchecked{++i}) {
 ```
+
+## [4] Public functions not used internally should be declared external
+
+https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/base/ERC721Checkpointable.sol#L133
+https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/base/ERC721Checkpointable.sol#L163
+https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/base/ERC721Enumerable.sol#L61
