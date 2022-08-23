@@ -384,8 +384,206 @@ Keep revert message lower than or equal to 32 bytes to save gas.
 
 #### Findings:
 ```
-contracts/governance/NounsDAOExecutor.sol:L152        require(queuedTransactions[txHash], "NounsDAOExecutor::executeTransaction: Transaction hasn't been queued.");
+contracts/base/ERC721Enumerable.sol:L62        require(index < ERC721.balanceOf(owner), 'ERC721Enumerable: owner index out of bounds');
 
+contracts/base/ERC721Enumerable.sol:L77        require(index < ERC721Enumerable.totalSupply(), 'ERC721Enumerable: global index out of bounds');
+
+contracts/base/ERC721Checkpointable.sol:L140        require(signatory != address(0), 'ERC721Checkpointable::delegateBySig: invalid signature');
+
+contracts/base/ERC721Checkpointable.sol:L141        require(nonce == nonces[signatory]++, 'ERC721Checkpointable::delegateBySig: invalid nonce');
+
+contracts/base/ERC721Checkpointable.sol:L142        require(block.timestamp <= expiry, 'ERC721Checkpointable::delegateBySig: signature expired');
+
+contracts/base/ERC721Checkpointable.sol:L164        require(blockNumber < block.number, 'ERC721Checkpointable::getPriorVotes: not yet determined');
+
+contracts/governance/NounsDAOProxy.sol:L79        require(msg.sender == admin, 'NounsDAOProxy::_setImplementation: admin only');
+
+contracts/governance/NounsDAOProxy.sol:L80        require(implementation_ != address(0), 'NounsDAOProxy::_setImplementation: invalid implementation address');
+
+contracts/governance/NounsDAOLogicV2.sol:L133        require(address(timelock) == address(0), 'NounsDAO::initialize: can only initialize once');
+
+contracts/governance/NounsDAOLogicV2.sol:L135        require(timelock_ != address(0), 'NounsDAO::initialize: invalid timelock address');
+
+contracts/governance/NounsDAOLogicV2.sol:L136        require(nouns_ != address(0), 'NounsDAO::initialize: invalid nouns address');
+
+contracts/governance/NounsDAOLogicV2.sol:L137        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L141        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L145        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L197        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L201        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L207        require(targets.length != 0, 'NounsDAO::propose: must provide actions');
+
+contracts/governance/NounsDAOLogicV2.sol:L208        require(targets.length <= proposalMaxOperations, 'NounsDAO::propose: too many actions');
+
+contracts/governance/NounsDAOLogicV2.sol:L213            require(
+
+contracts/governance/NounsDAOLogicV2.sol:L217            require(
+
+contracts/governance/NounsDAOLogicV2.sol:L286        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L312        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L324        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L347        require(state(proposalId) != ProposalState.Executed, 'NounsDAO::cancel: cannot cancel executed proposal');
+
+contracts/governance/NounsDAOLogicV2.sol:L350        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L375        require(vetoer != address(0), 'NounsDAO::veto: veto power burned');
+
+contracts/governance/NounsDAOLogicV2.sol:L377        require(state(proposalId) != ProposalState.Executed, 'NounsDAO::veto: cannot veto executed proposal');
+
+contracts/governance/NounsDAOLogicV2.sol:L433        require(proposalCount >= proposalId, 'NounsDAO::state: invalid proposal id');
+
+contracts/governance/NounsDAOLogicV2.sol:L577        require(signatory != address(0), 'NounsDAO::castVoteBySig: invalid signature');
+
+contracts/governance/NounsDAOLogicV2.sol:L593        require(state(proposalId) == ProposalState.Active, 'NounsDAO::castVoteInternal: voting is closed');
+
+contracts/governance/NounsDAOLogicV2.sol:L594        require(support <= 2, 'NounsDAO::castVoteInternal: invalid vote type');
+
+contracts/governance/NounsDAOLogicV2.sol:L597        require(receipt.hasVoted == false, 'NounsDAO::castVoteInternal: voter already voted');
+
+contracts/governance/NounsDAOLogicV2.sol:L622        require(msg.sender == admin, 'NounsDAO::_setVotingDelay: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L623        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L638        require(msg.sender == admin, 'NounsDAO::_setVotingPeriod: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L639        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L655        require(msg.sender == admin, 'NounsDAO::_setProposalThresholdBPS: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L656        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L674        require(msg.sender == admin, 'NounsDAO::_setMinQuorumVotesBPS: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L677        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L682        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L702        require(msg.sender == admin, 'NounsDAO::_setMaxQuorumVotesBPS: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L705        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L709        require(
+
+contracts/governance/NounsDAOLogicV2.sol:L727        require(msg.sender == admin, 'NounsDAO::_setQuorumCoefficient: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L801        require(msg.sender == admin, 'NounsDAO::_setPendingAdmin: admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L819        require(msg.sender == pendingAdmin && msg.sender != address(0), 'NounsDAO::_acceptAdmin: pending admin only');
+
+contracts/governance/NounsDAOLogicV2.sol:L840        require(msg.sender == vetoer, 'NounsDAO::_setVetoer: vetoer only');
+
+contracts/governance/NounsDAOLogicV2.sol:L853        require(msg.sender == vetoer, 'NounsDAO::_burnVetoPower: vetoer only');
+
+contracts/governance/NounsDAOExecutor.sol:L73        require(delay_ >= MINIMUM_DELAY, 'NounsDAOExecutor::constructor: Delay must exceed minimum delay.');
+
+contracts/governance/NounsDAOExecutor.sol:L74        require(delay_ <= MAXIMUM_DELAY, 'NounsDAOExecutor::setDelay: Delay must not exceed maximum delay.');
+
+contracts/governance/NounsDAOExecutor.sol:L81        require(msg.sender == address(this), 'NounsDAOExecutor::setDelay: Call must come from NounsDAOExecutor.');
+
+contracts/governance/NounsDAOExecutor.sol:L82        require(delay_ >= MINIMUM_DELAY, 'NounsDAOExecutor::setDelay: Delay must exceed minimum delay.');
+
+contracts/governance/NounsDAOExecutor.sol:L83        require(delay_ <= MAXIMUM_DELAY, 'NounsDAOExecutor::setDelay: Delay must not exceed maximum delay.');
+
+contracts/governance/NounsDAOExecutor.sol:L90        require(msg.sender == pendingAdmin, 'NounsDAOExecutor::acceptAdmin: Call must come from pendingAdmin.');
+
+contracts/governance/NounsDAOExecutor.sol:L98        require(
+
+contracts/governance/NounsDAOExecutor.sol:L114        require(msg.sender == admin, 'NounsDAOExecutor::queueTransaction: Call must come from admin.');
+
+contracts/governance/NounsDAOExecutor.sol:L115        require(
+
+contracts/governance/NounsDAOExecutor.sol:L134        require(msg.sender == admin, 'NounsDAOExecutor::cancelTransaction: Call must come from admin.');
+
+contracts/governance/NounsDAOExecutor.sol:L149        require(msg.sender == admin, 'NounsDAOExecutor::executeTransaction: Call must come from admin.');
+
+contracts/governance/NounsDAOExecutor.sol:L152        require(queuedTransactions[txHash], "NounsDAOExecutor::executeTransaction: Transaction hasn't been queued.");
+contracts/governance/NounsDAOExecutor.sol:L153        require(
+
+contracts/governance/NounsDAOExecutor.sol:L157        require(
+
+contracts/governance/NounsDAOExecutor.sol:L174        require(success, 'NounsDAOExecutor::executeTransaction: Transaction execution reverted.');
+
+contracts/governance/NounsDAOLogicV1.sol:L122        require(address(timelock) == address(0), 'NounsDAO::initialize: can only initialize once');
+
+contracts/governance/NounsDAOLogicV1.sol:L124        require(timelock_ != address(0), 'NounsDAO::initialize: invalid timelock address');
+
+contracts/governance/NounsDAOLogicV1.sol:L125        require(nouns_ != address(0), 'NounsDAO::initialize: invalid nouns address');
+
+contracts/governance/NounsDAOLogicV1.sol:L126        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L130        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L134        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L138        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L187        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L191        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L197        require(targets.length != 0, 'NounsDAO::propose: must provide actions');
+
+contracts/governance/NounsDAOLogicV1.sol:L198        require(targets.length <= proposalMaxOperations, 'NounsDAO::propose: too many actions');
+
+contracts/governance/NounsDAOLogicV1.sol:L203            require(
+
+contracts/governance/NounsDAOLogicV1.sol:L207            require(
+
+contracts/governance/NounsDAOLogicV1.sol:L275        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L301        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L313        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L336        require(state(proposalId) != ProposalState.Executed, 'NounsDAO::cancel: cannot cancel executed proposal');
+
+contracts/governance/NounsDAOLogicV1.sol:L339        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L364        require(vetoer != address(0), 'NounsDAO::veto: veto power burned');
+
+contracts/governance/NounsDAOLogicV1.sol:L366        require(state(proposalId) != ProposalState.Executed, 'NounsDAO::veto: cannot veto executed proposal');
+
+contracts/governance/NounsDAOLogicV1.sol:L422        require(proposalCount >= proposalId, 'NounsDAO::state: invalid proposal id');
+
+contracts/governance/NounsDAOLogicV1.sol:L485        require(signatory != address(0), 'NounsDAO::castVoteBySig: invalid signature');
+
+contracts/governance/NounsDAOLogicV1.sol:L501        require(state(proposalId) == ProposalState.Active, 'NounsDAO::castVoteInternal: voting is closed');
+
+contracts/governance/NounsDAOLogicV1.sol:L502        require(support <= 2, 'NounsDAO::castVoteInternal: invalid vote type');
+
+contracts/governance/NounsDAOLogicV1.sol:L505        require(receipt.hasVoted == false, 'NounsDAO::castVoteInternal: voter already voted');
+
+contracts/governance/NounsDAOLogicV1.sol:L530        require(msg.sender == admin, 'NounsDAO::_setVotingDelay: admin only');
+
+contracts/governance/NounsDAOLogicV1.sol:L531        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L546        require(msg.sender == admin, 'NounsDAO::_setVotingPeriod: admin only');
+
+contracts/governance/NounsDAOLogicV1.sol:L547        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L563        require(msg.sender == admin, 'NounsDAO::_setProposalThresholdBPS: admin only');
+
+contracts/governance/NounsDAOLogicV1.sol:L564        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L581        require(msg.sender == admin, 'NounsDAO::_setQuorumVotesBPS: admin only');
+
+contracts/governance/NounsDAOLogicV1.sol:L582        require(
+
+contracts/governance/NounsDAOLogicV1.sol:L599        require(msg.sender == admin, 'NounsDAO::_setPendingAdmin: admin only');
+
+contracts/governance/NounsDAOLogicV1.sol:L617        require(msg.sender == pendingAdmin && msg.sender != address(0), 'NounsDAO::_acceptAdmin: pending admin only');
+
+contracts/governance/NounsDAOLogicV1.sol:L638        require(msg.sender == vetoer, 'NounsDAO::_setVetoer: vetoer only');
+
+contracts/governance/NounsDAOLogicV1.sol:L651        require(msg.sender == vetoer, 'NounsDAO::_burnVetoPower: vetoer only');
 ```
 
 ### [G-10] Splitting ```require()``` statements that use && saves gas.
