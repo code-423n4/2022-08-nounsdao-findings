@@ -16,6 +16,16 @@ Consider replacing `^0.8.1xx` by `0.8.xx`
 
 Low risk because the tremendous majority of the time there is any risk.
 
+## [L-02] Missing check for address(0) when assigning value to address state variable.
+Zero address checking is the best practice to prevent burning fee, unexpected exceptions or the redeployment of the contract. 
+
+1 instances:
+
+https://github.com/code-423n4/2022-08-nounsdao/blob/c1c7c6201d0247f92472419ff657b570f9104565/contracts/governance/NounsDAOProxy.sol#L42-L46
+
+Consider adding a modifier at the start of those function to check it.
+
+*This is low risk because any risk can only result of an owner's error in calling an external function. This can easily be prevented.*
 
 
 # Non Critical
@@ -30,14 +40,3 @@ Low risk because the tremendous majority of the time there is any risk.
 	- `caries -> carries`
 - https://github.com/code-423n4/2022-08-nounsdao/blob/c1c7c6201d0247f92472419ff657b570f9104565/contracts/governance/NounsDAOLogicV2.sol#L848
 	- `priviledges -> privileges`
-
-## [N-02] Missing check for address(0) when assigning value to address state variable.
-Zero address checking is the best practice to prevent burning fee, unexpected exceptions or the redeployment of the contract. 
-
-1 instances:
-
-https://github.com/code-423n4/2022-08-nounsdao/blob/c1c7c6201d0247f92472419ff657b570f9104565/contracts/governance/NounsDAOProxy.sol#L42-L46
-
-Consider adding a modifier at the start of those function to check it.
-
-*This is non critical here because the check will be probably done but it can simply revert sooner.*
