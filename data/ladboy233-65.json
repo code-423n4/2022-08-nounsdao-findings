@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "ladboy233",
+  "address": "0xe1faaeb0d29c9cf411cbd47daab14a21ebe266a4",
+  "risk": "3",
+  "title": "Voting power of nft receiver and nft sender becomes invalid after nft transfer because NFT owner can have more than 1 voting power when _beforeTokenTransfer hook is called",
+  "issueId": 65,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/65"
+}
