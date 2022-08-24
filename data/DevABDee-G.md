@@ -57,7 +57,38 @@ contracts/base/ERC721Checkpointable.sol:41:
 + uint8 public constant decimals; //defaults to 0
 ```
 
-# 5. Taking Error/Function Revert Message from the user.
+# 5. Use `Unchecked` when looping through the elements of an array.
+Each time i++ is called under/overflow checks are made. But we're already constraining `i` by length,` i < length`, making those under/overflow checks unnecessary.
+Consider for example:
+```
+uint256 length = array.length;
+for(uint256 i = 0; i < length; i++) {
+  doSomething(array[i]);
+}
+```
+We can rewrite the loop like this with `unchecked` and potentially save significant gas:
+```
+uint256 length = array.length;
+for(uint256 i = 0; i < length;) {
+  doSomething(array[i]);
+  unchecked{ i++; }
+}
+```
+This can be easily implemented in the following lines:
+```
+contracts/governance/NounsDAOLogicV1.sol:281: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:319: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:346: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:371: for (uint256 i = 0; i < proposal.targets.length; i++) {
+
+contracts/governance/NounsDAOLogicV2.sol:292: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV2.sol:330: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV2.sol:357: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV2.sol:382: for (uint256 i = 0; i < proposal.targets.length; i++) {
+```
+
+
+# 6. Taking Error/Function Revert Message from the user.
 In `contracts/governance/NounsDAOLogicV2.sol`, the `errorMessage` in the `require` statement is a param, which means the user can put any message string in there. This can be a really costly method. And why take an ERROR msg from the user? [L1019](https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367d3c5109b5a89/contracts/governance/NounsDAOLogicV2.sol#L1019)
 ```solidity
     function safe32(uint256 n, string memory errorMessage) internal pure returns (uint32) {
