@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "durianSausage",
+  "address": "0xef70ccd1d2b1bbe1f6894e2d8b8a30897124b0ac",
+  "risk": "2",
+  "title": "M01: Some logic function is conflict with solidity default function",
+  "issueId": 44,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/44"
+}
