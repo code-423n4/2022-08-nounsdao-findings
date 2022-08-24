@@ -22,13 +22,34 @@ Correct these:
 [L62](https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367d3c5109b5a89/contracts/base/ERC721Enumerable.sol#L62) , [L77](https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367d3c5109b5a89/contracts/base/ERC721Enumerable.sol#L77)
 
 
-# 2. single `Uint8` costs more gas than the `uint256` 
+# 2. `i++` costs more gas than `++i`
+`i++` returns the non-incremented value, and `++i` returns the incremented value. That's why `++i` is more gas optimized. For more info check [this](https://ethereum.stackexchange.com/questions/133161/why-does-i-cost-less-gas-than-i)
+```diff
+- for (uint256 i = 0; i < proposal.targets.length; i++) {
++ for (uint256 i = 0; i < proposal.targets.length; i++) {
+```
+Change these:
+```
+contracts/governance/NounsDAOLogicV1.sol:281: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:319: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:346: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:371: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV1.sol:216: proposalCount++;
+
+contracts/governance/NounsDAOLogicV2.sol:226: proposalCount++;
+contracts/governance/NounsDAOLogicV2.sol:292: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV2.sol:330: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV2.sol:357: for (uint256 i = 0; i < proposal.targets.length; i++) {
+contracts/governance/NounsDAOLogicV2.sol:382: for (uint256 i = 0; i < proposal.targets.length; i++) {
+```
+
+# 3. single `Uint8` costs more gas than the `uint256` 
 `uint256` gives better gas optimization than `uint8`. For more info check [this](https://ethereum.stackexchange.com/questions/3067/why-does-uint8-cost-more-gas-than-uint256)
 ```solidity
 contracts/base/ERC721Checkpointable.sol:41: uint8 public constant decimals = 0;
 ```
 
-# 3. Variable declared to its default value costs extra gas.
+# 4. Variable declared to its default value costs extra gas.
 All `uint`s by default are assigned to Zero. but if you assign them again to their default value (0), That will cost extra gas.
 ```diff
 contracts/base/ERC721Checkpointable.sol:41: 
@@ -36,7 +57,7 @@ contracts/base/ERC721Checkpointable.sol:41:
 + uint8 public constant decimals; //defaults to 0
 ```
 
-# 4. Taking Error/Function Revert Message from the user.
+# 5. Taking Error/Function Revert Message from the user.
 In `contracts/governance/NounsDAOLogicV2.sol`, the `errorMessage` in the `require` statement is a param, which means the user can put any message string in there. This can be a really costly method. And why take an ERROR msg from the user? [L1019](https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367d3c5109b5a89/contracts/governance/NounsDAOLogicV2.sol#L1019)
 ```solidity
     function safe32(uint256 n, string memory errorMessage) internal pure returns (uint32) {
