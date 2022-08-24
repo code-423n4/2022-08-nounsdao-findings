@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "Jujic",
+  "address": "0x6e1da38f9d9d87ce228234a570d992d4db294fa1",
+  "risk": "2",
+  "title": "No Storage Gap for Upgradeable Contract Might Lead to Storage Slot Collision",
+  "issueId": 39,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/39"
+}
