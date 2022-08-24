@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "ladboy233",
+  "address": "0xe1faaeb0d29c9cf411cbd47daab14a21ebe266a4",
+  "risk": "2",
+  "title": "Centralization risk: admin or the vetoer in LogicV1 and LogicV2 implementation can rug the project.",
+  "issueId": 66,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/66"
+}
