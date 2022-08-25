@@ -6,7 +6,7 @@
     `DynamicQuorumParams` is a new structure with fields: `minQuorumVotesBPS`, `maxQuorumVotesBPS`, and `quorumCoefficient`.
     Values of these fields are not checked when `initialize` is called, even though new relevant constants were added
     (`MIN_QUORUM_VOTES_BPS_LOWER_BOUND`, `MIN_QUORUM_VOTES_BPS_UPPER_BOUND`, `MAX_QUORUM_VOTES_BPS_UPPER_BOUND`).
-    Moreover, `quorumCoefficient` doesn't have relevant constants to control the range of its correct values.
+    Moreover, `quorumCoefficient` doesn't have relevant constants to control the range of its correct values. `quorumCoefficient` set to an incorrect value can result in proposals not being able to reach a quorum.
 
     It's recommended to check the fields of `dynamicQuorumParams_` parameter in `initialize` function, as well as add
     constraints to `quorumCoefficient` to avoid initialization of the contract with incorrect parameters.
