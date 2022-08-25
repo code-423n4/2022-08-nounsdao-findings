@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "carlitox477",
+  "address": "0x19a7407430a31a81df83f54b66805402577fadd3",
+  "risk": "2",
+  "title": "NounsDAOLogicV1#NounsDAOLogicV1: does not initialize proposalCount storage variable",
+  "issueId": 74,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/74"
+}
