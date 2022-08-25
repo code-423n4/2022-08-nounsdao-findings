@@ -27,11 +27,18 @@ assembly{ id := chainid() } => uint256 id = block.chainid;
 contracts/governance/NounsDAOLogicV2.sol
 1013: chainId := chainid()
 
+contracts/base/ERC721Checkpointable.sol
+285: chainId := chainid()
+
 4. Constants should be defined rather than using magic numbers
 
 contracts/governance/NounsDAOLogicV2.sol
 909: uint256 quorumAdjustmentBPS = (params.quorumCoefficient * againstVotesBPS) / 1e6;
 1007: return (number * bps) / 10000;
+
+contracts/base/ERC721Checkpointable.sol
+254: require(n < 2**32, errorMessage);
+259: require(n < 2**96, errorMessage);
 
 5. Inconsistent spacing in comments
 
@@ -54,12 +61,22 @@ contracts/governance/NounsDAOLogicV2.sol
 995: function minQuorumVotes() public view returns (uint256) {
 1002: function maxQuorumVotes() public view returns (uint256) {
 
+contracts/base/ERC721Checkpointable.sol
+79: function votesToDelegate(address delegator) public view returns (uint96) {
+88: function delegates(address delegator) public view returns (address) {
+151: function getCurrentVotes(address account) external view returns (uint96) {
+163: function getPriorVotes(address account, uint256 blockNumber) public view returns (uint96) {
+282: function getChainId() internal view returns (uint256) {
+
 7. Abi.encodePacked() should not be used with dynamic types when passing the result to a hash function such as keccak256()
 
 Use abi.encode() instead which will pad items to 32 bytes, which will prevent hash collisions (e.g. abi.encodePacked(0x123,0x456) => 0x123456 => abi.encodePacked(0x1,0x23456), but abi.encode(0x123,0x456) => 0x0...1230...456). If there is only one argument to abi.encodePacked() it can often be cast to bytes() or bytes32() instead.
 
 contracts/governance/NounsDAOLogicV2.sol
 575: bytes32 digest = keccak256(abi.encodePacked('\x19\x01', domainSeparator, structHash));
+
+contracts/base/ERC721Checkpointable.sol
+138: bytes32 digest = keccak256(abi.encodePacked('\x19\x01', domainSeparator, structHash));
 
 8. Use of floating pragma
 
@@ -112,3 +129,26 @@ contracts/governance/NounsDAOLogicV2.sol
 101: bytes32 public constant DOMAIN_TYPEHASH =
 105: bytes32 public constant BALLOT_TYPEHASH = keccak256('Ballot(uint256 proposalId,uint8 support)');
 
+contracts/base/ERC721Checkpointable.sol
+59: bytes32 public constant DOMAIN_TYPEHASH =
+63: bytes32 public constant DELEGATION_TYPEHASH =
+
+12. Consider addings checks for signature malleability
+
+Use OpenZeppelin's ECDSA contract rather than calling ecrecover() directly
+
+contracts/base/ERC721Checkpointable.sol
+139: address signatory = ecrecover(digest, v, r, s);
+
+13. Use scientific notation (e.g. 1e18) rather than exponentiation (e.g. 10**18)
+
+contracts/base/ERC721Checkpointable.sol
+254: require(n < 2**32, errorMessage);
+259: require(n < 2**96, errorMessage);
+
+14. Not using the named return variables anywhere in the function is confusing
+
+Consider changing the variable to be an unnamed one
+
+contracts/base/ERC721Enumerable.sol
+54: function supportsInterface(bytes4 interfaceId) public view virtual override(IERC165, ERC721) returns (bool) {
