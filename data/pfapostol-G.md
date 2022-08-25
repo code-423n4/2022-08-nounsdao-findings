@@ -23,7 +23,7 @@ Gas Optimizations
 |**12**|Use `type(uintXXX).max` instead of `2\*\*XXX`|2|228||
 |**13**|Change the order of checking input parameters|15|-|-|
 
-**Total: instances over issues**
+**Total: 345 instances over 13 issues**
 
 ---
 
