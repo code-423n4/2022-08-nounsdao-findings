@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "Bjorn_bug",
+  "address": "0x1db29e491c10b0c9940fa46b81ee09ae3cd738be",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/91"
+}
