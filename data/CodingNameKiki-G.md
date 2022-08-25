@@ -57,6 +57,11 @@ contracts/governance/NounsDAOLogicV2.sol
 541: if (votes > 0) {
 967: if (pos > 0 && quorumParamsCheckpoints[pos - 1].fromBlock == blockNumber) {
 
+contracts/base/ERC721Checkpointable.sol
+153: return nCheckpoints > 0 ? checkpoints[account][nCheckpoints - 1].votes : 0;
+215: if (srcRep != dstRep && amount > 0) {
+243: if (nCheckpoints > 0 && checkpoints[delegatee][nCheckpoints - 1].fromBlock == blockNumber) {
+
 5. Arithmetics: Unchecking arithmetic operations that cannot underflow/overflow
 
 From Solidity v0.8 onwards, all arithmetic operations come with implicit overflow and underflow checks. In some instances, an overflow/underflow is impossible, such as:
@@ -71,6 +76,52 @@ contracts/governance/NounsDAOLogicV2.sol
 
 (Before) 958: upper = center - 1;
 (After) 958: unchecked { upper = center - 1; }
+
+(Before) 223: temp.startBlock = block.number + votingDelay;
+(After) 223: unchecked { temp.startBlock = block.number + votingDelay; }
+
+(Before) 224: temp.endBlock = temp.startBlock + votingPeriod;
+(After) 224: unchecked { temp.endBlock = temp.startBlock + votingPeriod; }
+
+(Before) 603: proposal.againstVotes = proposal.againstVotes + votes;
+(After) 603: unchecked { proposal.againstVotes = proposal.againstVotes + votes; }
+
+(Before) 605: proposal.forVotes = proposal.forVotes + votes;
+(After) 605: unchecked { proposal.forVotes = proposal.forVotes + votes; }
+
+(Before) 607: proposal.abstainVotes = proposal.abstainVotes + votes;
+(After) 607: unchecked { proposal.abstainVotes = proposal.abstainVotes + votes; }
+
+(Before) 908: uint256 againstVotesBPS = (10000 * againstVotes) / totalSupply;
+(After) 908: unchecked { uint256 againstVotesBPS = (10000 * againstVotes) / totalSupply; }
+
+(Before) 909: uint256 quorumAdjustmentBPS = (params.quorumCoefficient * againstVotesBPS) / 1e6;
+(After) 909: unchecked { uint256 quorumAdjustmentBPS = (params.quorumCoefficient * againstVotesBPS) / 1e6; }
+
+(Before) 910: uint256 adjustedQuorumBPS = params.minQuorumVotesBPS + quorumAdjustmentBPS;
+(After) 910: unchecked { uint256 adjustedQuorumBPS = params.minQuorumVotesBPS + quorumAdjustmentBPS; }
+
+(Before) 951: uint256 center = upper - (upper - lower) / 2;
+(After) 951: unchecked { uint256 center = upper - (upper - lower) / 2; }
+
+contracts/base/ERC721Checkpointable.sol
+(Before) 247: numCheckpoints[delegatee] = nCheckpoints + 1;
+(After) 247: unchecked { numCheckpoints[delegatee] = nCheckpoints + 1; }
+
+(Before) 268: uint96 c = a + b;
+(After) 268: unchecked { uint96 c = a + b; }
+
+(Before) 279: return a - b;
+(After) 279: unchecked { return a - b; }
+
+(Before) 182: uint32 upper = nCheckpoints - 1;
+(After) 182: unchecked { uint32 upper = nCheckpoints - 1; }
+
+(Before) 191: upper = center - 1;
+(After) 191: unchecked { upper = center - 1; }
+
+(Before) 184: uint32 center = upper - (upper - lower) / 2;
+(After) 184: unchecked { uint32 center = upper - (upper - lower) / 2; }
 
 6. Visibility: Consider declaring constants as non-public to save gas
 
@@ -93,6 +144,11 @@ contracts/governance/NounsDAOLogicV2.sol
 98: uint256 public constant REFUND_BASE_GAS = 36000;
 101: bytes32 public constant DOMAIN_TYPEHASH =
 105: bytes32 public constant BALLOT_TYPEHASH = keccak256('Ballot(uint256 proposalId,uint8 support)');
+
+contracts/base/ERC721Checkpointable.sol
+41: uint8 public constant decimals = 0;
+59: bytes32 public constant DOMAIN_TYPEHASH =
+63: bytes32 public constant DELEGATION_TYPEHASH =
 
 7. Visibility: public functions can be set to external
 
@@ -131,6 +187,13 @@ contracts/governance/NounsDAOLogicV2.sol
 
 (Before) 948: uint256 lower = 0;
 (After) 948: uint256 lower;
+
+contracts/base/ERC721Checkpointable.sol
+(Before) 41: uint8 public constant decimals = 0;
+(After) 41: uint8 public constant decimals;
+
+(Before) 181: uint32 lower = 0;
+(After) 181: uint32 lower;
 
 9. Errors: Reduce the length of error messages (long revert strings)
 
@@ -232,5 +295,3 @@ contracts/governance/NounsDAOLogicV2.sol
 866: function proposalCreationBlock(Proposal storage proposal) internal view returns (uint256) {
 974: function _refundGas(uint256 startGas) internal {
 1010: function getChainIdInternal() internal view returns (uint256) {
-
-15. 
