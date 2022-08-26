@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "0xNineDec",
+  "address": "0x764312ef291900ef32be90dd3eb5a1bfa6788e84",
+  "risk": "2",
+  "title": "The admin can continuously deny users to receive refunds from votes",
+  "issueId": 173,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/173"
+}
