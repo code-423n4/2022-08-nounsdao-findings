@@ -378,5 +378,4 @@ File: contracts/governance/NounsDAOLogicV2.sol
 https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/NounsDAOLogicV2.sol
 
 ### Use a more recent version of solidity
--   Use a solidity version of at least 0.8.4 to get custom errors, which are cheaper at deployment than revert()/require() strings \
 -   Use a solidity version of at least 0.8.10 to have external calls skip contract existence checks if the external call has a return value
