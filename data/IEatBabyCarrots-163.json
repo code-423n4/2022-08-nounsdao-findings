@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "IEatBabyCarrots",
+  "address": "0x7F513737a9eB42Fb14a4255B7c28Ab429DdB7096",
+  "risk": "2",
+  "title": "Delegating to the zero address is possible through signature",
+  "issueId": 163,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/163"
+}
