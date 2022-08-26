@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "Respx",
+  "address": "0x006949f2f1b70d35afda9ded6cb9f3e152fa031b",
+  "risk": "3",
+  "title": "Voters can burn large amounts of Ether by submitting votes with long reason strings",
+  "issueId": 174,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/174"
+}
