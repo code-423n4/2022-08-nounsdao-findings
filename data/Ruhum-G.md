@@ -5,6 +5,8 @@
 - [G-03: dont assign zero values explicitly](#g-03-dont-assign-zero-values-explicitly)
 - [G-04: msg.sender can't be `address(0)`](#g-04-msgsender-cant-be-address0)
 - [G-05: use `calldata` instead of `memory` if you don't mutate a function parameter](#g-05-use-calldata-instead-of-memory-if-you-dont-mutate-a-function-parameter)
+- [G-06: use `memory` instead of `storage` when reading a state variable](#g-06-use-memory-instead-of-storage-when-reading-a-state-variable)
+- [G-07: unnecessary underflow checks](#g-07-unnecessary-underflow-checks)
 
 ## G-01: use `++i` instead of `i++` to save gas
 
@@ -63,7 +65,7 @@ for (uint i; i < length;) {
 
 ## G-03: dont assign zero values explicitly
 
-It's just a waste of gas, the zero value is assigned by default.
+It's just a waste of gas this the zero value is assigned by default.
 
 - https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/NounsDAOLogicV2.sol#L227-L245
 
@@ -87,3 +89,18 @@ It's a waste to check whether `msg.sender != address(0)`
 ./contracts/governance/NounsDAOLogicV2.sol:536:        string memory reason
 ```
 
+## G-06: use `memory` instead of `storage` when reading a state variable
+
+```
+./contracts/governance/NounsDAOLogicV2.sol:413:        Proposal storage p = _proposals[proposalId];
+./contracts/governance/NounsDAOLogicV2.sol:434:        Proposal storage proposal = _proposals[proposalId];
+./contracts/governance/NounsDAOLogicV2.sol:463:        Proposal storage proposal = _proposals[proposalId];
+./contracts/governance/NounsDAOLogicV2.sol:878:        Proposal storage proposal = _proposals[proposalId];
+```
+
+## G-07: unnecessary underflow checks
+
+Since Solidity v0.8.0 over- & underflow checks are built-in. Checking for that yourself is a waste of gas:
+
+- https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/base/ERC721Checkpointable.sol#L219
+- https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/base/ERC721Checkpointable.sol#L226
