@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "throttle",
+  "address": "0x210b0D0694ff95c99dD693DD89CDF2f88de6beC4",
+  "risk": "3",
+  "title": "Borrowing NFTs at proposal block to gain more vote power.",
+  "issueId": 140,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/140"
+}
