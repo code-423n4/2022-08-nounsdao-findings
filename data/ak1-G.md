@@ -49,4 +49,11 @@ https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367
 
 https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367d3c5109b5a89/contracts/governance/NounsDAOLogicV2.sol#L382
 
+3.use `calldata` instead of `memory` for string in function argument.
+   https://github.com/code-423n4/2022-08-nounsdao/blob/c1c7c6201d0247f92472419ff657b570f9104565/contracts/governance/NounsDAOLogicV2.sol#L536
+
+ `-string memory reason`
+ `+string calldata reason`
+   
+
         
