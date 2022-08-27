@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "d3e4",
+  "address": "0xaf9b8098424c31151749638f8258b3376cfdc04f",
+  "risk": "2",
+  "title": "Votes which guarantee a majority for-vote can still result in a defeated proposal",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/350"
+}
