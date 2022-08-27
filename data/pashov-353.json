@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "pashov",
+  "address": "0x1797c3bcebf8c858a916fcbbd0359f65f5484915",
+  "risk": "2",
+  "title": "Possible stuck Ether inNounsDAOProxy.sol",
+  "issueId": 353,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/353"
+}
