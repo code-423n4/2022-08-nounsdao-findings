@@ -346,9 +346,9 @@ contracts/governance/NounsDAOLogicV1.sol:101:    bytes32 public constant BALLOT_
 
 -----
 
-## 10. abi.encode() is less efficient than abi.encode packet()
+## 10. abi.encode() is less efficient than abi.encodepacked()
 
-Use abi.encode packet() instead of abi.encode()
+Use abi.encodepacked() instead of abi.encode()
 
 ### Instances:
 [NounsDAOLogicV2.sol:L313](https://github.com/code-423n4/2022-08-nounsdao/tree/main/contracts/governance/NounsDAOLogicV2.sol#L313)
