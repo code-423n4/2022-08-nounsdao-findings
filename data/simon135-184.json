@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "simon135",
+  "address": "0x7bfbabda21beebb17e284901bfc41e942f8128c8",
+  "risk": "2",
+  "title": "Attacker  can frontrun a  user small  tx who thinks they are getting a gas refund but the attcker  suppies  dust amounts or gets lucky and causes  the user to not get as much refunds as they thought",
+  "issueId": 184,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/184"
+}
