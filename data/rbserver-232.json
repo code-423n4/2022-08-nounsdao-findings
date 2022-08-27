@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "rbserver",
+  "address": "0x4bd9605a3e546f3400df2c2be7b1c775aeea56bd",
+  "risk": "2",
+  "title": "Dynamic quorum votes parameters for a proposal (Proposal A) are changed according to another proposal (Proposal B) that proposes to update dynamic quorum votes parameters when Proposal B is executed after Proposal A is created in the same block",
+  "issueId": 232,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/232"
+}
