@@ -1,6 +1,10 @@
 ## FINDINGS
 
-### Use a constant for readonly variables that can be set and never edited(saves 4 SLOADs)
+### Using Constants on state variables that are never changed after (saves 4 SLOADs)
+
+The compiler does not reserve a storage slot for these variables, and every occurrence is replaced by the respective value.
+Compared to regular state variables, the gas costs of constant  variables are much lower. For a constant variable, the expression assigned to it is copied to all the places where it is accessed and also re-evaluated each time. This allows for local optimizations
+
 File:NounsDAOInterfaces.sol  [Line 527](https://github.com/code-423n4/2022-08-nounsdao/blob/45411325ec14c6d747b999a40367d3c5109b5a89/contracts/governance/NounsDAOInterfaces.sol#L257)
 
 ```solidity
