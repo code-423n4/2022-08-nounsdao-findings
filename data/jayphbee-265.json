@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "jayphbee",
+  "address": "0x6f7db8c189f51959c2c7f695ef7d96a9f400d830",
+  "risk": "2",
+  "title": "Inconsistent implementation of `delegate` and `delegateBySig` leads to inconsistent `checkpoints` and `numCheckpoints` modification.",
+  "issueId": 265,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/265"
+}
