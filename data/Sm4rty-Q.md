@@ -44,3 +44,20 @@ Recommend using fixed solidity version
 
 
 -----
+## 3. Multiple initialization due to initialize function not having initializer modifier.
+
+### Description
+
+The attacker can initialize the contract, take malicious actions, and allow it to be re-initialized by the project without any error being noticed.
+
+### Instances
+[NounsDAOLogicV2.sol:124](https://github.com/code-423n4/2022-08-nounsdao/tree/main/contracts/governance/NounsDAOLogicV2.sol#L124)
+[NounsDAOLogicV1.sol:113](https://github.com/code-423n4/2022-08-nounsdao/tree/main/contracts/governance/NounsDAOLogicV1.sol#L113)
+```
+contracts/governance/NounsDAOLogicV2.sol:124:    function initialize(
+contracts/governance/NounsDAOLogicV1.sol:113:    function initialize(
+```
+
+### References:
+
+[https://github.com/code-423n4/2021-12-perennial-findings/issues/13](https://github.com/code-423n4/2021-12-perennial-findings/issues/13)
