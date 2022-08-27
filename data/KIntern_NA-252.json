@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "KIntern_NA",
+  "address": "0x9cD641c50320Ad533a07f6bAFE8b313599D071AE",
+  "risk": "3",
+  "title": "delegate to zero address can make user lose their votes forever ",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/252"
+}
