@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "ak1",
+  "address": "0xf7a08c2c341bde5e17103d4780d1b465011a2a31",
+  "risk": "3",
+  "title": "Storge collision issue between NounsDAOStorageV1 and NounsDAOStorageV1Adjusted",
+  "issueId": 203,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/203"
+}
