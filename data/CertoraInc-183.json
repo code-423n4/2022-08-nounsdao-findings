@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "CertoraInc",
+  "address": "0x09A9af114843218a7446929b1183eBec373B2827",
+  "risk": "2",
+  "title": "The system can get stuck if no user has enough voting power to initiate a proposal",
+  "issueId": 183,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/183"
+}
