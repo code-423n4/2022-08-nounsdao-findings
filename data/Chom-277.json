@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "Chom",
+  "address": "0xc4c459668fb29833d7dee997d7d347e2634c9cef",
+  "risk": "2",
+  "title": "Voter can vote without owning any Noun DAO NFT if they can borrow Noun DAO NFT on the creationBlock and hold it for 1 block then return it",
+  "issueId": 277,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/277"
+}
