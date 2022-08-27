@@ -73,7 +73,7 @@ https://github.com/code-423n4/2022-08-nounsdao/blob/main/contracts/governance/No
 &nbsp;
 
 ## [L-01] NO REQUIRE CHECKS FOR .CALL
-
+Function may fail silently due to missing require check
 _There are 2 instances of this issue:_
 
 ```solidity
