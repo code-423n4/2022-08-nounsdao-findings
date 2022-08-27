@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "neumo",
+  "address": "0x52156528d5029d09fe82bf44c7bd6de91eee5774",
+  "risk": "2",
+  "title": "Proposals can be executed when the proposer votes have fallen below the proposal threshold",
+  "issueId": 289,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/289"
+}
