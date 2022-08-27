@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "byndooa",
+  "address": "0x94bce1057e95d61a9754a238cddbda0989787154",
+  "risk": "3",
+  "title": "Multiple storage slot collisions between versions - due to different order in declaration",
+  "issueId": 334,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/334"
+}
