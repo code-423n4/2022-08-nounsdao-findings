@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "saneryee",
+  "address": "0x8165636930a7020f4106c9a153463626a4d9bda2",
+  "risk": "3",
+  "title": "There is no control point to set the range of Linear Coefficient, causing the rule - function dynamicQuorumVotes(), lose their meaning under some certain conditions.",
+  "issueId": 188,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/188"
+}
