@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "vlad_bochok",
+  "address": "0xe48ba3c77704b31c87d5bd4d0fd8317ff3ebfec9",
+  "risk": "2",
+  "title": "Griefing attacks on NounsAuctionHouse",
+  "issueId": 382,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/382"
+}
