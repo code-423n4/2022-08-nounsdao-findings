@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "rbserver",
+  "address": "0x4bd9605a3e546f3400df2c2be7b1c775aeea56bd",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 411,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/411"
+}
