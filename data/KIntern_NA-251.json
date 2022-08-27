@@ -1,0 +1,9 @@
+{
+  "contest": 155,
+  "handle": "KIntern_NA",
+  "address": "0x9cD641c50320Ad533a07f6bAFE8b313599D071AE",
+  "risk": "2",
+  "title": "When executor doesn't have enough funds, users want to send native token to execute their proposals, and they can be front-run attacked then their proposals will not be executed.",
+  "issueId": 251,
+  "issueUrl": "https://github.com/code-423n4/2022-08-nounsdao-findings/issues/251"
+}
