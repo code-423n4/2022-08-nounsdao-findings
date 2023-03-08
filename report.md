@@ -1,3 +1,11 @@
+---
+sponsor: "Nouns DAO"
+slug: "2022-08-nounsdao"
+date: "2022-09-30"  
+title: "Nouns DAO contest"
+findings: "https://github.com/code-423n4/2022-08-nounsdao-findings/issues"
+contest: 155
+---
 
 # Overview
 
